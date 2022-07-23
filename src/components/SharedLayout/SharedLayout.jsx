@@ -2,7 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 const SharedLayout = () => {
   return (
-    <div display="grid" gridAutoColumns="1fr" gridGap="16px">
+    <div>
       <header>
         <nav>
           <NavLink to="/">Home</NavLink>

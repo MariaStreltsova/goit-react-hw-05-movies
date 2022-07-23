@@ -14,7 +14,7 @@ export default function SearchBar({ onSubmit }) {
       // console.log(error)
       return;
     }
-    onsubmit(searchQuery);
+    onSubmit(searchQuery);
     resetState();
   };
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-const MovieItem = ({ id, title, poster }) => {
+const MovieItem = ({ id, title }) => {
   return (
     <>
       <li>

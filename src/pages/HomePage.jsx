@@ -1,4 +1,4 @@
-import MovieItem from '../components/MovieItem/Movie';
+import { MoviesList } from '../components/moviesList/MoviesList';
 import { useState, useEffect } from 'react';
 
 import { fetchTrendingMoovies } from '../service/apiService';
@@ -18,12 +18,5 @@ export default function HomePageRender() {
     getFetchMoovies();
   }, []);
 
-  return (
-    <>
-      {movies &&
-        movies.map(({ id, original_title }) => {
-          return <MovieItem key={id} title={original_title} id={id} />;
-        })}
-    </>
-  );
+  return <>{movies && <MoviesList movies={movies} />};</>;
 }
