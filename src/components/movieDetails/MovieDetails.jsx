@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMoviesById } from 'service/apiService';
-
+import { DetailsContainer } from './MovieDetails.styled';
 export const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
@@ -24,7 +24,7 @@ export const MovieDetails = () => {
     const movieGenres = genres.map(genre => genre.name).join(', ');
 
     return (
-      <div>
+      <DetailsContainer>
         <img
           src={`https://image.tmdb.org/t/p/w300${poster_path}`}
           alt={title}
@@ -37,7 +37,7 @@ export const MovieDetails = () => {
         <p>{overview}</p>
         <h4>Genres</h4>
         <p>{movieGenres}</p>
-      </div>
+      </DetailsContainer>
     );
   }
 };

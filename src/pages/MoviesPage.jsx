@@ -57,7 +57,7 @@ const Input = styled(Field)`
   border-radius: ${p => p.theme.radii.normal};
   :hover,
   :focus {
-    border: ${p => p.theme.borders.none};
+    border: ${p => p.theme.borders.normal} ${p => p.theme.colors.accent};
   }
 `;
 
@@ -67,7 +67,7 @@ const SearchBtn = styled.button`
   border-radius: ${p => p.theme.radii.normal};
   :hover,
   :focus {
-    border: ${p => p.theme.borders.none};
+    border: ${p => p.theme.borders.normal} ${p => p.theme.colors.accent};
     background-color: ${p => p.theme.colors.white};
     font-weight: ${p => p.theme.fontWeights.bold};
   }
