@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { fetchMoviesById } from 'service/apiService';
 
 export const MovieDetails = () => {
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState({});
   const { movieId } = useParams();
 
   useEffect(() => {
-    async function getFetchMoovies() {
+    async function getFetchMoovies(movieId) {
       try {
         const data = await fetchMoviesById(movieId);
 

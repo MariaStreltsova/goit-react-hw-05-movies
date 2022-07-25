@@ -3,7 +3,7 @@ const MovieItem = ({ id, title }) => {
   return (
     <>
       <li>
-        <Link to={`/movie/${id}`}>
+        <Link to={`/movies/${id}`}>
           {/* //   state={{ from: location }} */}
           {/* 
           <img src={`https://image.tmdb.org/t/p/w500${poster}`} alt={title} /> */}

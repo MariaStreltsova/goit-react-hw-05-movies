@@ -2,6 +2,7 @@ import { MovieDetails } from 'components/movieDetails/MovieDetails';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 export const MovieDetailsRender = () => {
   const location = useLocation();
+  //   const { movieId } = useParams();
   const goBackPage = location.state?.from ?? '/';
   return (
     <>
