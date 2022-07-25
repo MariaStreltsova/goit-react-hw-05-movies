@@ -1,41 +1,41 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-export default function SearchBar({ onSubmit }) {
-  const [searchQuery, setSearchQuery] = useState('');
+// export default function SearchBar({ onSubmit }) {
+//   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleQueryChange = e => {
-    setSearchQuery(e.target.value.toLowerCase());
-  };
+//   const handleQueryChange = e => {
+//     setSearchQuery(e.target.value.toLowerCase());
+//   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+//   const handleSubmit = e => {
+//     e.preventDefault();
 
-    if (searchQuery.trim() === '') {
-      // console.log(error)
-      return;
-    }
-    onSubmit(searchQuery);
-    resetState();
-  };
+//     if (searchQuery.trim() === '') {
+//       // console.log(error)
+//       return;
+//     }
+//     onSubmit(searchQuery);
+//     resetState();
+//   };
 
-  const resetState = () => {
-    setSearchQuery('');
-  };
+//   const resetState = () => {
+//     setSearchQuery('');
+//   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        autoComplete="off"
-        autoFocus
-        placeholder="Search movies"
-        name="searchQuery"
-        value={searchQuery}
-        onChange={handleQueryChange}
-      />
-      <button type="submit">
-        <label>Search</label>
-      </button>
-    </form>
-  );
-}
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <input
+//         type="text"
+//         autoComplete="off"
+//         autoFocus
+//         placeholder="Search movies"
+//         name="searchQuery"
+//         value={searchQuery}
+//         onChange={handleQueryChange}
+//       />
+//       <button type="submit">
+//         <label>Search</label>
+//       </button>
+//     </form>
+//   );
+// }

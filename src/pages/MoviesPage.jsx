@@ -4,7 +4,7 @@ import { fetchMoviesBySearch } from 'service/apiService';
 import { useState, useEffect } from 'react';
 import { MoviesList } from 'components/moviesList/MoviesList';
 // import SearchBar from 'components/searchBox/SearchBox';
-
+import styled from 'styled-components';
 export default function MoviesPageRender() {
   const [movies, setMovies] = useState([]);
   const [searhParams, setSearchParams] = useSearchParams();
@@ -27,13 +27,6 @@ export default function MoviesPageRender() {
     getFetchMovies(query);
   }, [query]);
 
-  // const visibleMovies = movies.filter(movie =>
-  //   movie.query.toLowerCase().includes(searchQuery.toLowerCase())
-  // );
-  // const updateQueryString = query => {
-  //   const nextParams = query !== '' ? { query } : {};
-  //   setSearchParams(nextParams);
-  // };
   return movieId ? (
     <Outlet />
   ) : (
@@ -45,12 +38,37 @@ export default function MoviesPageRender() {
           resetForm();
         }}
       >
-        <Form>
-          <Field name="query" type="text" />
-          <button type="submit">Search</button>
-        </Form>
+        <SearchForm>
+          <Input name="query" type="text" placeholder="Search movies" />
+          <SearchBtn type="submit">Search</SearchBtn>
+        </SearchForm>
       </Formik>
       {Object.keys(movies).length > 0 && <MoviesList movies={movies} />}
     </>
   );
 }
+const SearchForm = styled(Form)`
+  margin-left: ${p => p.theme.space[3]}px;
+`;
+const Input = styled(Field)`
+  margin-right: ${p => p.theme.space[3]}px;
+  width: ${p => p.theme.space[8]}px;
+  height: ${p => p.theme.space[5]}px;
+  border-radius: ${p => p.theme.radii.normal};
+  :hover,
+  :focus {
+    border: ${p => p.theme.borders.none};
+  }
+`;
+
+const SearchBtn = styled.button`
+  height: ${p => p.theme.space[5]}px;
+  padding: ${p => p.theme.space[2]}px;
+  border-radius: ${p => p.theme.radii.normal};
+  :hover,
+  :focus {
+    border: ${p => p.theme.borders.none};
+    background-color: ${p => p.theme.colors.white};
+    font-weight: ${p => p.theme.fontWeights.bold};
+  }
+`;
