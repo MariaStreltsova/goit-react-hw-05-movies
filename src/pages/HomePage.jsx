@@ -18,5 +18,5 @@ export default function HomePageRender() {
     getFetchMoovies();
   }, []);
 
-  return <>{movies && <MoviesList movies={movies} />};</>;
+  return <>{movies && <MoviesList movies={movies} />}</>;
 }

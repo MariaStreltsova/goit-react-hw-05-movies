@@ -1,15 +1,11 @@
-import { Link } from 'react-router-dom';
+import { MovieLink } from './MovieItem.styled';
 const MovieItem = ({ id, title }) => {
   return (
     <>
       <li>
-        <Link to={`/movies/${id}`}>
-          {/* //   state={{ from: location }} */}
-          {/* 
-          <img src={`https://image.tmdb.org/t/p/w500${poster}`} alt={title} /> */}
-
+        <MovieLink to={`/movies/${id}`}>
           <h3>{title}</h3>
-        </Link>
+        </MovieLink>
       </li>
     </>
   );
