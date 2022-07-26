@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { fetchMoviesById } from 'service/apiService';
 import { DetailsContainer } from './MovieDetails.styled';
 export const MovieDetails = () => {
@@ -13,7 +14,7 @@ export const MovieDetails = () => {
 
         setMovie(data);
       } catch (error) {
-        console.log(error);
+        toast.error('Page not found', { duration: 3000 });
       }
     }
     getFetchMoovies(movieId);

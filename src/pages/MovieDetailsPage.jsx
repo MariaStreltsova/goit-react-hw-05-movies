@@ -1,7 +1,7 @@
-import { MovieDetails } from 'components/movieDetails/MovieDetails';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-export const MovieDetailsRender = () => {
+import { MovieDetails } from 'components/movieDetails/MovieDetails';
+const MovieDetailsRender = () => {
   const location = useLocation();
   //   const { movieId } = useParams();
   const goBackPage = location.state?.from ?? '/';
@@ -14,6 +14,7 @@ export const MovieDetailsRender = () => {
         <AdditionalLink to="cast">Cast</AdditionalLink>
         <AdditionalLink to="reviews">Reviews</AdditionalLink>
       </AdditionalInfo>
+
       <Outlet />
     </>
   );
@@ -47,3 +48,4 @@ const AdditionalLink = styled(Link)`
     color: ${p => p.theme.colors.accent};
   }
 `;
+export default MovieDetailsRender;

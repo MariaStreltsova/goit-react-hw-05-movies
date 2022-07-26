@@ -1,10 +1,15 @@
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import SharedLayout from './SharedLayout/SharedLayout';
-import HomePageRender from '../pages/HomePage';
-import MoviesPageRender from 'pages/MoviesPage';
-import { MovieDetailsRender } from 'pages/MovieDetailsPage';
-import CastPage from 'pages/CastPage';
-import ReviewsPage from '../pages/ReviewsPage';
+
+const HomePageRender = lazy(() => import('../pages/HomePage'));
+const MoviesPageRender = lazy(() => import('../pages/MoviesPage'));
+const MovieDetailsRender = lazy(() => import('../pages/MovieDetailsPage'));
+const CastPage = lazy(() => import('../pages/CastPage'));
+const ReviewsPage = lazy(() => import('../pages/ReviewsPage'));
+
 export const App = () => {
   return (
     <>
@@ -19,6 +24,7 @@ export const App = () => {
           </Route>
         </Route>
       </Routes>
+      <ToastContainer />
     </>
   );
 };

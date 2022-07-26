@@ -1,7 +1,8 @@
 import { Outlet, useSearchParams, useParams } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
-import { fetchMoviesBySearch } from 'service/apiService';
+import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
+import { fetchMoviesBySearch } from 'service/apiService';
 import { MoviesList } from 'components/moviesList/MoviesList';
 // import SearchBar from 'components/searchBox/SearchBox';
 import styled from 'styled-components';
@@ -15,10 +16,13 @@ export default function MoviesPageRender() {
     const getFetchMovies = async searchQuery => {
       try {
         const data = await fetchMoviesBySearch(searchQuery);
-
+        if (!data.results.length) {
+          throw new Error('No results found');
+        }
         setMovies(data.results);
       } catch (error) {
         console.log(error);
+        toast.error('No results found', { duration: 3000 });
       }
     };
     if (query === '') {

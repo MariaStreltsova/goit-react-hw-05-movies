@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { fetchReviewById } from '../service/apiService';
-
 import { Reviews } from 'components/reviews/Reviews';
+
 export default function CastPage() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState({});
@@ -16,9 +17,12 @@ export default function CastPage() {
           author,
           content,
         }));
+        if (!result.length) {
+          throw new Error('');
+        }
         setReviews(result);
       } catch (error) {
-        console.log(error);
+        toast.error('No reviews found');
       }
     };
     getCastInfo(movieId);

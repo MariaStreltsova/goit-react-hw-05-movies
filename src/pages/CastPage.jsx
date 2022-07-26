@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { fetchCastById } from '../service/apiService';
 import { Cast } from '../components/cast/Cast';
 
@@ -19,9 +20,12 @@ export default function CastPage() {
             id,
           })
         );
+        if (!result.length) {
+          throw new Error('Cast not found');
+        }
         setCast(result);
       } catch (error) {
-        console.log(error);
+        toast.error(error.message);
       }
     };
     getCastInfo(movieId);
