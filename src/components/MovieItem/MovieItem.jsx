@@ -1,4 +1,5 @@
 import { MovieLink } from './MovieItem.styled';
+import PropTypes from 'prop-types';
 const MovieItem = ({ id, title }) => {
   return (
     <>
@@ -11,3 +12,7 @@ const MovieItem = ({ id, title }) => {
   );
 };
 export default MovieItem;
+MovieItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+};

@@ -1,4 +1,5 @@
 import defaultImg from '../../images/defaultImg.png';
+import PropTypes from 'prop-types';
 export function Cast({ cast }) {
   return (
     <>
@@ -25,3 +26,12 @@ export function Cast({ cast }) {
     </>
   );
 }
+Cast.propTypes = {
+  cast: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      profile_path: PropTypes.string,
+    })
+  ),
+};

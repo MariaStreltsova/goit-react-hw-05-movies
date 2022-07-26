@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { fetchMoviesById } from 'service/apiService';
 import { DetailsContainer } from './MovieDetails.styled';
+
 export const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
@@ -41,4 +43,12 @@ export const MovieDetails = () => {
       </DetailsContainer>
     );
   }
+};
+
+MovieDetails.propTypes = {
+  title: PropTypes.string,
+  poster_path: PropTypes.string,
+  overview: PropTypes.string,
+  vote_average: PropTypes.number,
+  genres: PropTypes.string,
 };
