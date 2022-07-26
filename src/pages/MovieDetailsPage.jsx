@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { MovieDetails } from 'components/movieDetails/MovieDetails';
@@ -14,8 +15,9 @@ const MovieDetailsRender = () => {
         <AdditionalLink to="cast">Cast</AdditionalLink>
         <AdditionalLink to="reviews">Reviews</AdditionalLink>
       </AdditionalInfo>
-
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
