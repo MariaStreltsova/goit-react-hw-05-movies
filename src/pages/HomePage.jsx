@@ -1,6 +1,6 @@
 import { MoviesList } from '../components/moviesList/MoviesList';
 import { useState, useEffect } from 'react';
-
+import styled from 'styled-components';
 import { fetchTrendingMoovies } from '../service/apiService';
 
 export default function HomePageRender() {
@@ -20,8 +20,15 @@ export default function HomePageRender() {
 
   return (
     <>
-      <p>Trending Today</p>
+      <Title>Trending Today</Title>
       {movies && <MoviesList movies={movies} />}
     </>
   );
 }
+const Title = styled.h2`
+  margin: ${p => p.theme.space[4]}px;
+  text-decoration: none;
+  color: ${p => p.theme.colors.accent};
+  font-size: ${p => p.theme.fontSizes.m};
+  font-weight: ${p => p.theme.fontWeights.bold};
+`;
