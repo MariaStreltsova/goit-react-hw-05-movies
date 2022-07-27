@@ -1,4 +1,4 @@
-import { Outlet, useSearchParams, useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
@@ -9,7 +9,7 @@ import styled from 'styled-components';
 export default function MoviesPageRender() {
   const [movies, setMovies] = useState([]);
   const [searhParams, setSearchParams] = useSearchParams();
-  const { movieId } = useParams();
+  // const { movieId } = useParams();
   const query = searhParams.get('query') ?? '';
 
   useEffect(() => {
@@ -31,9 +31,7 @@ export default function MoviesPageRender() {
     getFetchMovies(query);
   }, [query]);
 
-  return movieId ? (
-    <Outlet />
-  ) : (
+  return (
     <>
       <Formik
         initialValues={{ query: '' }}

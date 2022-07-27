@@ -1,24 +1,37 @@
-import { Suspense } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { MovieDetails } from 'components/movieDetails/MovieDetails';
+
+const CastPage = lazy(() => import('./CastPage'));
+const ReviewsPage = lazy(() => import('./ReviewsPage'));
+
 const MovieDetailsRender = () => {
   const location = useLocation();
-  //   const { movieId } = useParams();
+  const { movieId } = useParams();
   const goBackPage = location.state?.from ?? '/';
   return (
-    <>
-      <GoBack to={goBackPage}>Go back</GoBack>
-      <MovieDetails />
-      <AdditionalInfo>
-        <h3>Additional information</h3>
-        <AdditionalLink to="cast">Cast</AdditionalLink>
-        <AdditionalLink to="reviews">Reviews</AdditionalLink>
-      </AdditionalInfo>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
-    </>
+    movieId && (
+      <>
+        <GoBack to={goBackPage}>Go back</GoBack>
+        <MovieDetails />
+        <AdditionalInfo>
+          <h3>Additional information</h3>
+          <AdditionalLink to="/movies/:movieId/cast">Cast</AdditionalLink>
+          <AdditionalLink to="/reviews">Reviews</AdditionalLink>
+        </AdditionalInfo>{' '}
+        {/* <Suspense fallback={<div>Loading...</div>}>
+    <Outlet />
+      </Suspense> */}
+        <Suspense fallback={<>Loading..</>}>
+          <Routes>
+            <Route path="/cast" element={<CastPage />} />
+            <Route path="reviews" element={<ReviewsPage />} />
+          </Routes>
+        </Suspense>
+      </>
+    )
   );
 };
 const GoBack = styled(Link)`
