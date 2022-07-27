@@ -18,7 +18,7 @@ const MovieDetailsRender = () => {
         <MovieDetails />
         <AdditionalInfo>
           <h3>Additional information</h3>
-          <AdditionalLink to="/movies/:movieId/cast">Cast</AdditionalLink>
+          <AdditionalLink to="/cast">Cast</AdditionalLink>
           <AdditionalLink to="/reviews">Reviews</AdditionalLink>
         </AdditionalInfo>{' '}
         {/* <Suspense fallback={<div>Loading...</div>}>
