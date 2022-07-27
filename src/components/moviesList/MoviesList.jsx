@@ -1,4 +1,4 @@
-import MovieItem from 'components/MovieItem1/MovieItem';
+import MovieItem from 'components/moviesList/movieItem/MovieItem';
 import PropTypes from 'prop-types';
 import { List } from './MovieList.styled';
 export const MoviesList = ({ movies }) => {

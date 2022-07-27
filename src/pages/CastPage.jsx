@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { fetchCastById } from '../service/apiService';
-import { Cast } from '../components/cast/Cast';
+import { Cast } from '../components/movieDetails/cast/Cast';
 
 export default function CastPage() {
   const { movieId } = useParams();
