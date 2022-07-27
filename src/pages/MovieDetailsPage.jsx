@@ -18,15 +18,15 @@ const MovieDetailsRender = () => {
         <MovieDetails />
         <AdditionalInfo>
           <h3>Additional information</h3>
-          <AdditionalLink to="/cast">Cast</AdditionalLink>
-          <AdditionalLink to="/reviews">Reviews</AdditionalLink>
+          <AdditionalLink to="cast">Cast</AdditionalLink>
+          <AdditionalLink to="reviews">Reviews</AdditionalLink>
         </AdditionalInfo>{' '}
         {/* <Suspense fallback={<div>Loading...</div>}>
     <Outlet />
       </Suspense> */}
         <Suspense fallback={<>Loading..</>}>
           <Routes>
-            <Route path="/cast" element={<CastPage />} />
+            <Route path="cast" element={<CastPage />} />
             <Route path="reviews" element={<ReviewsPage />} />
           </Routes>
         </Suspense>
