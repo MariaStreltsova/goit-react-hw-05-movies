@@ -2,10 +2,11 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const API_KEY = 'b955cfd3c9f73eb51718e31500dd3096';
+axios.defaults.params = { api_key: API_KEY };
 
 export const fetchTrendingMoovies = async () => {
   try {
-    const response = await axios.get(`/trending/movie/day?api_key=${API_KEY}`);
+    const response = await axios.get(`/trending/movie/day`);
     return response.data;
   } catch (error) {
     console.log(error.message);
@@ -14,9 +15,7 @@ export const fetchTrendingMoovies = async () => {
 
 export const fetchMoviesBySearch = async query => {
   try {
-    const response = await axios.get(
-      `/search/movie?api_key=${API_KEY}&query=${query}`
-    );
+    const response = await axios.get(`/search/movie?query=${query}`);
     return response.data;
   } catch (error) {
     console.log(error.message);
@@ -25,7 +24,7 @@ export const fetchMoviesBySearch = async query => {
 
 export const fetchMoviesById = async movieId => {
   try {
-    const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
+    const response = await axios.get(`/movie/${movieId}`);
     return response.data;
   } catch (error) {
     console.log(error.message);
@@ -34,9 +33,7 @@ export const fetchMoviesById = async movieId => {
 
 export const fetchCastById = async movieId => {
   try {
-    const response = await axios.get(
-      `/movie/${movieId}/credits?api_key=${API_KEY}`
-    );
+    const response = await axios.get(`/movie/${movieId}/credits`);
     return response.data;
   } catch (error) {
     console.log(error.message);
@@ -45,9 +42,7 @@ export const fetchCastById = async movieId => {
 
 export const fetchReviewById = async movieId => {
   try {
-    const response = await axios.get(
-      `/movie/${movieId}/reviews?api_key=${API_KEY}`
-    );
+    const response = await axios.get(`/movie/${movieId}/reviews`);
     return response.data;
   } catch (error) {
     console.log(error.message);
